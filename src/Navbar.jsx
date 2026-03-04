@@ -1,81 +1,175 @@
-import React, { useState } from 'react';
-import { FaInstagram, FaFacebookF } from "react-icons/fa";
-const Navbar = () => {
-        const [isOpen, setIsOpen] = useState(false);
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from 'lucide-react';
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaFacebookF,
+} from "react-icons/fa";
+import { RiCloseFill, RiMenu3Line } from "react-icons/ri";
 
-            const navLinks = [
-                { name: 'Home', href: '#' },
-                { name: 'About', href: '#' },
-                { name: 'Services', href: '#' },
-                { name: 'Blog', href: '#' },
-                { name: 'Project', href: '#' },
-                { name: 'Contact', href: '#' },
-            ];
+// Sub-component for Dropdowns
+const NavDropdown = ({ title, items }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <nav className='bg-wild-sand'>
-      <div className='container flex items-center justify-around'>
-            <div className='flex items-center gap-10'>
-
-                {/* Logo Section */}
-                <div className="shrink-0 flex items-center">
-                    <img src="./src/assets/img/logo.png"/>
-                </div>
-
-                {/* Desktop Menu - Hidden on mobile, flex on medium screens+ */}
-                <div className="hidden md:flex space-x-8">
-                    {navLinks.map((link) => (
-                    <a
-                        key={link.name}
-                        href={link.href}
-                        className="text-chinese-black"
-                    >
-                        {link.name}
-                    </a>
-                    ))}
-                </div>
-            </div>
-
-             {/* Social Icons (Visible on Desktop & Mobile) */}
-          <div className="flex items-center space-x-3 md:space-x-5">
-            {/* Instagram */}
-            <button className="p-3 bg-[#F0F6FD] hover:bg-blue-600 rounded-full transition-colors cursor-pointer" aria-label="User Account">
-              <FaInstagram />
-             </button>
-
-            {/* Facebook */}
-            <button className="p-3 bg-[#F0F6FD] hover:bg-blue-600 rounded-full transition-colors cursor-pointer relative" aria-label="Shopping Cart">
-             <FaFacebookF />
-              {/* <span className="absolute top-1 right-1 bg-indigo-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white">
-                3
-              </span> */}
-            </button> 
-        </div>
-
-        </div>
-
-    {/* Mobile Menu Dropdown */}
-      <div 
-        className={`${
-          isOpen ? 'block' : 'hidden'
-        } md:hidden bg-white border-t border-gray-100 animate-in slide-in-from-top duration-300`}
+    <div className="relative group" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 text-chinese-black font-bold text-[16px] leading-7 px-2 py-2.5 cursor-pointer"
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {navLinks.map((link) => (
+        {title}
+        <ChevronDown 
+          size={16} 
+          className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} 
+        />
+      </button>
+
+      {/* Dropdown Menu */}
+      <div
+        className={`absolute left-0 mt-1 w-48 bg-white shadow-xl rounded-lg border border-gray-100 z-50 transition-all duration-200 
+          ${isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-2 scale-95 pointer-events-none"}`}
+      >
+        <div className="py-2">
+          {items.map((item, idx) => (
             <a
-              key={link.name}
-              href={link.href}
-              className="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-              onClick={() => setIsOpen(false)} // Close menu on link click
+              key={idx}
+              href={item.href}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-wild-sand hover:text-tomato transition-colors"
             >
-              {link.name}
+              {item.label}
             </a>
           ))}
         </div>
       </div>
+    </div>
+  );
+};
 
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Data structure to handle both simple links and dropdowns
+  const navLinks = [
+    { name: "Home", href: "#" },
+    { name: "About", href: "#" },
+    { 
+      name: "Services", 
+      dropdown: [
+        { label: "Web Design", href: "#" },
+        { label: "App Development", href: "#" },
+        { label: "Digital Marketing", href: "#" },
+      ] 
+    },
+    { 
+      name: "Blog", 
+      dropdown: [
+        { label: "Tech News", href: "#" },
+        { label: "Tutorials", href: "#" },
+      ] 
+    },
+    { 
+      name: "Project", 
+      dropdown: [
+        { label: "Portfolio", href: "#" },
+        { label: "Case Studies", href: "#" },
+      ] 
+    },
+    { name: "Contact", href: "#" },
+  ];
+
+  return (
+    <nav className="bg-wild-sand shadow-lg shadow-wild-sand/50 relative">
+      <div className="container flex items-center justify-between py-3.75 px-5">
+        
+        {/* Logo Section */}
+        <div className="shrink-0 flex items-center">
+          <img src="./src/assets/img/logo.png" alt="Logo" className="" />
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-2">
+          {navLinks.map((link) => (
+            link.dropdown ? (
+              <NavDropdown key={link.name} title={link.name} items={link.dropdown} />
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-chinese-black font-bold text-[16px] leading-7 px-3 py-2.5 hover:text-tomato transition-colors"
+              >
+                {link.name}
+              </a>
+            )
+          ))}
+        </div>
+        
+        <div className="flex gap-6.25 items-center">
+          {/* Social Icons */}
+          <div className="hidden lg:flex items-center space-x-2">
+            {[FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF].map((Icon, i) => (
+              <button
+                key={i}
+                className="p-3 bg-lavender-gray hover:bg-tomato hover:text-white rounded-full transition-all cursor-pointer"
+              >
+                <Icon size={14} />
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Toggle Button */}
+          <div className="flex items-center">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-white bg-tomato rounded-full cursor-pointer focus:outline-none"
+            >
+              {isMobileMenuOpen ? <RiCloseFill size={21} /> : <RiMenu3Line size={21} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`${isMobileMenuOpen ? "block" : "hidden"} md:hidden bg-white border-t border-gray-100 absolute w-full left-0 z-50`}
+      >
+        <div className="px-4 pt-2 pb-6 space-y-1">
+          {navLinks.map((link) => (
+            <div key={link.name}>
+              {link.dropdown ? (
+                <>
+                  <div className="font-bold text-chinese-black px-3 py-2 border-b border-gray-50">{link.name}</div>
+                  {link.dropdown.map((sub) => (
+                    <a key={sub.label} href={sub.href} className="block pl-8 pr-3 py-2 text-black-coral text-sm">{sub.label}</a>
+                  ))}
+                </>
+              ) : (
+                <a
+                  href={link.href}
+                  className="block text-chinese-black font-bold px-3 py-2 rounded-md hover:bg-wild-sand"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
