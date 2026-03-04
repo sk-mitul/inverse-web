@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com');
+@import "tailwindcss";
+
+@theme{
+  --default-font-family: "Rajdhani", sans-serif;
+  --font-rubik: "Rubik", sans-serif;
+  --color-chinese-black: #141414;
+  --color-black-coral: #5D6570;
+  --color-tomato: #FF494A;
+  --color-wild-sand: #F4F4F4;
+  --color-lavender-gray: #D9DDE0;
+  --color-charcoal: #2A2D31;
+}
+@layer base {
+  .container {
+    @apply max-w-326.25 mx-auto;
+  }
+  .btn {
+    @apply py-5 px-7.5 bg-black-coral hover:bg-tomato text-charcoal hover:text-white border-2 border-lavender-gray;
+  }
+  
+}
