@@ -16,7 +16,19 @@
     @apply max-w-326.25 mx-auto;
   }
   .btn {
-    @apply py-5 px-7.5 bg-black-coral hover:bg-tomato text-charcoal hover:text-white border-2 border-lavender-gray;
-  }
-  
+    @apply w-50 h-15 px-7.5 bg-wild-sand hover:bg-tomato capitalize font-rubik font-medium text-[16px] text-charcoal hover:text-white leading-4 tracking-[0.5px] border-2 hover:border-tomato border-lavender-gray rounded-full flex items-center justify-center transition-all duration-100;
+  }  
+}
+
+@layer utilities{
+  .stroke-front {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: tomato;
+}
+.stroke-back {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black-coral;
+}
 }

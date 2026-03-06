@@ -92,8 +92,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-wild-sand shadow-lg shadow-wild-sand/50 relative">
-      <div className="container flex items-center justify-between py-3.75 px-5">
-        
+      <div className="max-w-326.25 mx-auto flex items-center justify-between py-3.75 px-5">        
         {/* Logo Section */}
         <div className="shrink-0 flex items-center">
           <img src="./src/assets/img/logo.png" alt="Logo" className="" />
