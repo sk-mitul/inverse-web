@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <>
     <div className="max-w-322.5 mx-auto lg:flex lg:items-center lg:justify-between lg:relative">
-      <img src="/src/assets/img/messenger.png" className="fixed top-90 sm:left-140 left-65 w-10 z-50"/>
+      <img src="/src/assets/img/messenger.png" className="fixed w-10 bottom-6 right-5 z-50"/>
       <div className="relative lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-7 lg:order-2 z-10">
         <img src="/src/assets/img/hero-img.png" alt="hero-image" className="max-w-full h-auto mx-auto object-contain"/>
       </div>
