@@ -28,15 +28,13 @@ const ServiceCard = ({ title, projects, iconUrl }) => {
 
 const Service = () => {
   return (
-    <>
-    <div className="mx-auto max-w-322.5 mt-7.5 lg:pt-70 xl:pt-100 mb-22.5">
+    <section id="service" className="mx-auto max-w-322.5 lg:pt-70 xl:pt-100 my-7.5 lg:mb-22.5">
       <div className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-4 px-3.75">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}
       </div>
-    </div>
-    </>
+    </section>
   );
 };
 

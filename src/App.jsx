@@ -1,6 +1,7 @@
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Service from './Service'
+import Experience from './Experience'
 
 function App() { 
 
@@ -9,6 +10,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <Service/>
+      <Experience/>
     </>
   )
 }
