@@ -3,6 +3,7 @@ import Hero from './Hero'
 import Service from './Service'
 import Experience from './Experience'
 import LatestService from './LatestService'
+import Skill from './Skill'
 
 function App() { 
 
@@ -13,6 +14,7 @@ function App() {
       <Service/>
       <Experience/>
       <LatestService/>
+      <Skill/>
     </>
   )
 }
