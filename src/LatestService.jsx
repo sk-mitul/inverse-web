@@ -22,7 +22,7 @@ const LatestService = () => {
   return (
     <section
       id="latestService"
-      className="mx-auto max-w-326.25 px-3.75 py-7.5 lg:mb-22.5"
+      className="mx-auto max-w-326.25 px-3.75 py-7.5 lg:pt-0 lg:mb-22.5"
     >
       <div className="mb-7.5 text-center">
         <span className="text-tomato font-rubik font-medium text-[16px] uppercase tracking-[1px] leading-7">
@@ -38,16 +38,16 @@ const LatestService = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-25 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-21.25 items-center">
         {/* Left Content: Services List */}
-        <div className="flex flex-col gap-5 pt-7.5">
+        <div className="flex flex-col gap-5 pt-7.5 xl:pt-0 lg:px-3.75">
             {services.map((service) => (
               <div key={service.id} className="group relative">
                 {/* The Accent Border (Bottom & Right) */}
                 <div className="card-effect" />
 
                 {/* The Card Body */}
-                <div className="relative h-full bg-wild-sand px-3.25 md:px-10 py-7 md:py-9 rounded-[20px]">
+                <div className="relative h-full bg-wild-sand px-3.25 md:px-9.5 py-7 md:py-8.5 rounded-[20px]">
                   <div className="flex flex-col md:gap-5.5">
                     <h3 className="text-[24px] font-bold text-chinese-black leading-7.5">
                       <span className="mr-3.75">{service.id}</span>{" "}

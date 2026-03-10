@@ -5,6 +5,8 @@ import Stats from './Stats'
 import LatestService from './LatestService'
 import Skill from './Skill'
 import Education from './Education'
+import Experience from './Experience'
+import LogoGrid from './LogoGrid'
 
 function App() { 
 
@@ -17,6 +19,8 @@ function App() {
       <LatestService/>
       <Skill/>
       <Education/>
+      <Experience/>
+      <LogoGrid/>
     </>
   )
 }

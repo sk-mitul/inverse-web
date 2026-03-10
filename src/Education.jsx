@@ -43,7 +43,7 @@ const EducationCard = ({ role, years, description }) => (
 
 function Education() {
   return (
-    <section id="education" className="mx-auto max-w-326.25 px-3.75 py-7.5 lg:mb-22.5">
+    <section id="education" className="mx-auto max-w-326.25 px-3.75 lg:pt-0 py-7.5 mb-3.25">
       <h2 className="font-bold text-[32px] leading-10.5">Education</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7.5 mt-7.5">

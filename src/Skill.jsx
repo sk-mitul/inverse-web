@@ -32,7 +32,7 @@ const SkillItem = ({ name, level }) => (
 
 function Skill() {
   return (
-    <section id="skill" className="mx-auto max-w-326.25 px-3.75 py-7.5 lg:mb-22.5">
+    <section id="skill" className="mx-auto max-w-326.25 px-3.75 lg:pt-0 py-7.5 lg:mb-22.5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7.5 text-chinese-black">
         
         {/* Design Column */}
