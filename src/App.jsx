@@ -11,6 +11,8 @@ import Portfolio from './Portfolio'
 import MySkill from './MySkill'
 import Pricing from './Pricing'
 import Testimonial from './Testimonial'
+import Blog from './Blog'
+import Footer from './Footer'
 
 function App() { 
 
@@ -29,6 +31,8 @@ function App() {
       <MySkill/>
       <Pricing/>
       <Testimonial/>
+      <Blog/>
+      <Footer/>
     </>
   )
 }

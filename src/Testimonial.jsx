@@ -16,13 +16,13 @@ const testimonials = [
     image: "/src/assets/img/comma-icon.svg"
   },
   {
-    text: "The collaboration process was seamless. The attention to detail in the UI/UX design phase really helped our brand stand out in a crowded market.",
+    text: "A personal portfolio is a curated collection of an individual's professional work, showcasing their skillA personal portfolio is a curated collection of an individual's professional work.",
     name: "Jane Cooper",
     role: "Product Manager",
     image: "/src/assets/img/comma-icon.svg"
   },
   {
-    text: "Exceptional work on the responsive layout. The transition between mobile and desktop is smooth and the visual hierarchy is perfect.",
+    text: "A personal portfolio is a curated collection of an individual's professional work, showcasing their skillA personal portfolio is a curated collection of an individual's professional work.",
     name: "Robert Fox",
     role: "Frontend Developer",
     image: "/src/assets/img/comma-icon.svg"
@@ -35,7 +35,7 @@ const TestimonialCard = ({ quote, name, role, quoteImage }) => (
     <div className="card-effect" />
     
     {/* Card Content */}
-    <div className="relative h-full p-10 md:p-12 bg-wild-sand border border-gray-100 rounded-[20px] flex flex-col gap-6">
+    <div className="relative h-full p-9.5 bg-wild-sand border border-gray-100 rounded-[20px] flex flex-col gap-6">
       {/* Comma Image replacement */}
       <div className="flex items-center justify-start transition-transform duration-500 group-hover:rotate-5">
         <img 
@@ -51,7 +51,7 @@ const TestimonialCard = ({ quote, name, role, quoteImage }) => (
 
       <div className="mt-4 text-left">
         <h4 className="text-chinese-black font-bold text-[18px] leading-[20.5px]">{name}</h4>
-        <p className="text-gray-400 text-sm font-rubik leading-[22.4px]">{role}</p>
+        <p className="text-gray-400 text-sm font-rubik leading-[22.4px] mt-2.75">{role}</p>
       </div>
     </div>
   </div>
