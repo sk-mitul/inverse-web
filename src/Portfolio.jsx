@@ -39,7 +39,7 @@ const ProjectCard = ({ project }) => (
     </div>
 
     {/* Text and Button Row */}
-    <div className="flex justify-between items-center px-2">
+    <div className="flex justify-between items-center">
       <div className="space-y-2.5">
         <h3 className="text-[20px] font-bold leading-7.5 text-chinese-black group-hover:text-tomato transition-colors">
           {project.title}
@@ -59,9 +59,9 @@ function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-wild-sand rounded-[20px]"
+      className="bg-wild-sand rounded-tl-[20px] rounded-tr-[20px] lg:pb-22.5"
     >
-    <div className="mx-auto max-w-326.25 px-3.75 lg:pt-25 py-7.5 lg:mb-22.5">
+    <div className="mx-auto max-w-326.25 px-3.75 lg:pt-25 py-7.5">
       {/* Header */}
       <div className="mb-7.5 text-center">
         <span className="text-tomato font-rubik font-medium text-[16px] uppercase tracking-[1px] leading-7">

@@ -18,7 +18,7 @@ function LogoGrid() {
         {logos.map((logo, index) => (
           <div 
             key={index} 
-            className="flex items-center justify-center py-6 md:py-10 border-r border-b border-2 border-lavender-gray transition-colors hover:bg-lavender-gray/50 group"
+            className="flex items-center justify-center py-6 md:py-10 px-10 border-r border-b border-2 border-lavender-gray transition-colors hover:bg-lavender-gray/50 group"
           >
             <img
               src={logo.src}

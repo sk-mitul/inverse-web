@@ -8,6 +8,9 @@ import Education from './Education'
 import Experience from './Experience'
 import LogoGrid from './LogoGrid'
 import Portfolio from './Portfolio'
+import MySkill from './MySkill'
+import Pricing from './Pricing'
+import Testimonial from './Testimonial'
 
 function App() { 
 
@@ -23,6 +26,9 @@ function App() {
       <Experience/>
       <LogoGrid/>
       <Portfolio/>
+      <MySkill/>
+      <Pricing/>
+      <Testimonial/>
     </>
   )
 }
