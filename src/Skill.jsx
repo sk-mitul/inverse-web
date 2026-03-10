@@ -37,7 +37,7 @@ function Skill() {
         
         {/* Design Column */}
         <div>
-          <h2 className="font-bold text-[32px] leading-8">Design Skill</h2>
+          <h2 className="font-bold text-[32px] leading-10.5">Design Skill</h2>
           {skillsData.design.map((skill, index) => (
             <SkillItem key={index} name={skill.name} level={skill.level} />
           ))}
@@ -45,7 +45,7 @@ function Skill() {
 
         {/* Development Column */}
         <div>
-          <h2 className="font-bold text-[32px] leading-8">Development Skill</h2>
+          <h2 className="font-bold text-[32px] leading-10.5">Development Skill</h2>
           {skillsData.development.map((skill, index) => (
             <SkillItem key={index} name={skill.name} level={skill.level} />
           ))}

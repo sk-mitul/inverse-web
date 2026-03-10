@@ -44,10 +44,10 @@ const LatestService = () => {
             {services.map((service) => (
               <div key={service.id} className="group relative">
                 {/* The Accent Border (Bottom & Right) */}
-                <div className="absolute inset-0 border-r-2 border-b-2 border-tomato rounded-[20px]" />
+                <div className="card-effect" />
 
                 {/* The Card Body */}
-                <div className="bg-wild-sand px-3.25 md:px-10 py-7 md:py-9 rounded-[20px]">
+                <div className="relative h-full bg-wild-sand px-3.25 md:px-10 py-7 md:py-9 rounded-[20px]">
                   <div className="flex flex-col md:gap-5.5">
                     <h3 className="text-[24px] font-bold text-chinese-black leading-7.5">
                       <span className="mr-3.75">{service.id}</span>{" "}

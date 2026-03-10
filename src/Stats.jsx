@@ -1,4 +1,4 @@
-const Experience = () => {
+const Stats = () => {
   const stats = [
     { number: "20K+", label: "Our Project Complete" },
     { number: "10K+", label: "Our Natural Products" },
@@ -8,7 +8,7 @@ const Experience = () => {
 
   return (
     <section
-      id="experience"
+      id="stats"
       className="mx-auto max-w-326.25 px-3.75 py-7.5 lg:mb-22.5"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7.5">
@@ -53,4 +53,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Stats;

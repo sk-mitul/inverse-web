@@ -33,3 +33,9 @@
   -webkit-text-stroke-color: black-coral;
 }
 }
+
+@layer components{
+  .card-effect{
+    @apply absolute inset-0 translate-x-0.5 translate-y-0.5 bg-tomato rounded-[20px] transition-transform group-hover:translate-x-1 group-hover:translate-y-1;
+  }
+}
