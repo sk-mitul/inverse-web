@@ -13,7 +13,7 @@ const logos = [
 
 function LogoGrid() {
   return (
-    <section id="logoGrid" className="mx-auto max-w-326.25 px-3.75 lg:pt-0 py-7.5 lg:mb-22.5">
+    <section id="logoGrid" className="mx-auto max-w-326.25 px-3.75 lg:pt-0 py-7.5 mb-7.5 lg:mb-22.5">
       <div className="grid grid-cols-1 md:grid-cols-4 border-t border-l border-2 border-lavender-gray">
         {logos.map((logo, index) => (
           <div 
