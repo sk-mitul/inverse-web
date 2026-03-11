@@ -13,19 +13,19 @@ const testimonials = [
     text: "A personal portfolio is a curated collection of an individual's professional work, showcasing their skillA personal portfolio is a curated collection of an individual's professional work.",
     name: "Cameron Williamson",
     role: "Ui/Ux Designer",
-    image: "/src/assets/img/comma-icon.svg"
+    image: "/comma-icon.svg"
   },
   {
     text: "A personal portfolio is a curated collection of an individual's professional work, showcasing their skillA personal portfolio is a curated collection of an individual's professional work.",
     name: "Jane Cooper",
     role: "Product Manager",
-    image: "/src/assets/img/comma-icon.svg"
+    image: "/comma-icon.svg"
   },
   {
     text: "A personal portfolio is a curated collection of an individual's professional work, showcasing their skillA personal portfolio is a curated collection of an individual's professional work.",
     name: "Robert Fox",
     role: "Frontend Developer",
-    image: "/src/assets/img/comma-icon.svg"
+    image: "/comma-icon.svg"
   }
 ];
 
@@ -90,7 +90,7 @@ function Testimonial() {
               quote={item.text} 
               name={item.name} 
               role={item.role} 
-              quoteImage="/src/assets/img/comma-icon.svg"
+              quoteImage="/comma-icon.svg"
             />
           </SwiperSlide>
         ))}

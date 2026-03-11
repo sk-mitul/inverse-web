@@ -1,14 +1,14 @@
 import React from 'react';
 
 const logos = [
-  { name: 'Linear', src: '/src/assets/img/logo-linear.png' },
-  { name: 'Framer', src: '/src/assets/img/logo-framer.png' },
-  { name: 'Notion', src: '/src/assets/img/logo-notion.png' },
-  { name: 'Slack', src: '/src/assets/img/logo-slack.png' },
-  { name: 'Medium', src: '/src/assets/img/logo-medium.png' },
-  { name: 'Upwork', src: '/src/assets/img/logo-upwork.png' },
-  { name: 'Amazon', src: '/src/assets/img/logo-amazon.png' },
-  { name: 'Asana', src: '/src/assets/img/logo-asana.png' },
+  { name: 'Linear', src: '/logo-linear.png' },
+  { name: 'Framer', src: '/logo-framer.png' },
+  { name: 'Notion', src: '/logo-notion.png' },
+  { name: 'Slack', src: '/logo-slack.png' },
+  { name: 'Medium', src: '/logo-medium.png' },
+  { name: 'Upwork', src: '/logo-upwork.png' },
+  { name: 'Amazon', src: '/logo-amazon.png' },
+  { name: 'Asana', src: '/logo-asana.png' },
 ];
 
 function LogoGrid() {

@@ -1,7 +1,7 @@
-import designIcon from './assets/img/designIcon.svg';
-import uxIcon from './assets/img/uxIcon.svg';
-import bulbIcon from './assets/img/bulbIcon.svg';
-import mailIcon from './assets/img/mailIcon.svg';
+import designIcon from '/designIcon.svg';
+import uxIcon from '/uxIcon.svg';
+import bulbIcon from '/bulbIcon.svg';
+import mailIcon from '/mailIcon.svg';
 
 
 const services = [

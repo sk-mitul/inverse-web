@@ -65,7 +65,7 @@ const LatestService = () => {
         {/* Right Content: Image */}
         <div className="flex justify-center pt-7.5">
           <img
-            src="/src/assets/img/latest-user-image.png"
+            src="/latest-user-image.png"
             alt="Consultant"
             className="w-full"
           />

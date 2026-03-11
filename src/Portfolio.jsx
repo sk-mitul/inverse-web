@@ -4,25 +4,25 @@ const projects = [
   {
     title: "My Journey as a Creator",
     category: "Development Coaches",
-    image: "/src/assets/img/portfolio-img-1.png",
+    image: "/portfolio-img-1.png",
     offset: false
   },
   {
     title: "My Professional Portfolio",
     category: "Development Coaches",
-    image: "/src/assets/img/portfolio-img-2.png",
+    image: "/portfolio-img-2.png",
     offset: true
   },
   {
     title: "My Portfolio of Innovation",
     category: "App Development",
-    image: "/src/assets/img/portfolio-img-3.png",
+    image: "/portfolio-img-3.png",
     offset: false
   },
   {
     title: "A Portfolio of Creativity and Passion",
     category: "Business Development",
-    image: "/src/assets/img/portfolio-img-4.png",
+    image: "/portfolio-img-4.png",
     offset: true
   }
 ];

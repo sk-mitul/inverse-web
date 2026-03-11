@@ -32,18 +32,18 @@ const Hero = () => {
         }}
         className="fixed bottom-6 right-5 z-50 transition-transform active:scale-90 cursor-pointer"
       >
-        <img src="/src/assets/img/messenger.png" className="w-10" alt="messenger toggle" />
+        <img src="/messenger.png" className="w-10" alt="messenger toggle" />
       </button>
 
       {/* 4. Backdrop & Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
-          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 z-60 bg-black/60 backdrop-blur-sm transition-opacity"
           onClick={() => setIsSidebarOpen(false)} // Close when clicking anywhere on site
         >
           {/* Sidebar Panel */}
           <div 
-            className={`absolute top-0 right-0 h-full w-full sm:w-[450px] bg-[#f8f8f8] shadow-2xl transition-transform duration-500 p-8 overflow-y-auto ${
+            className={`absolute top-0 right-0 h-full w-full sm:w-112.5 bg-[#f8f8f8] shadow-2xl transition-transform duration-500 p-8 overflow-y-auto ${
               isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside panel
@@ -51,14 +51,14 @@ const Hero = () => {
             {/* Sidebar Header with Close Button */}
             <div className="flex justify-between items-center mb-10">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-tomato rounded-full flex items-center justify-center">
                   <div className="w-4 h-4 border-2 border-white rounded-full" />
                 </div>
                 <span className="text-2xl font-black text-gray-900">Reeni</span>
               </div>
               <button 
                 onClick={() => setIsSidebarOpen(false)}
-                className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all"
+                className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-tomato hover:text-white transition-all"
               >
                 <X size={20} />
               </button>
@@ -66,7 +66,7 @@ const Hero = () => {
 
             {/* Sidebar Content (Profile & Details) */}
             <div className="rounded-2xl overflow-hidden mb-10">
-              <img src="/src/assets/img/hero-img.png" alt="Profile" className="w-full bg-gray-200" />
+              <img src="/hero-img.png" alt="Profile" className="w-full bg-gray-200" />
             </div>
             
             <h2 className="text-2xl font-black text-gray-900 leading-tight mb-6">
@@ -92,7 +92,7 @@ const Hero = () => {
 
       {/* --- Existing Hero Layout --- */}
       <div className="relative lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-7 lg:order-2 z-10">
-        <img src="/src/assets/img/hero-img.png" alt="hero-image" className="max-w-full h-auto mx-auto object-contain"/>
+        <img src="/hero-img.png" alt="hero-image" className="max-w-full h-auto mx-auto object-contain"/>
       </div>
       <h1 className="stroke-front hidden lg:block absolute font-bold uppercase text-[150px] leading-[172.5px] top-150 xl:top-180 left-40 xl:left-65 z-20">web design</h1>
       <h1 className="stroke-back hidden lg:block absolute font-bold uppercase text-[170px] xl:text-[212.9px] leading-[244.8px] top-130 xl:top-150 left-25 xl:left-35 z-0">web design</h1>

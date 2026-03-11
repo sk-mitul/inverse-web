@@ -4,21 +4,21 @@ import { User, Calendar, ChevronRight } from 'lucide-react';
 const blogPosts = [
   {
     id: 1,
-    image: "/src/assets/img/blog-img-1.png", 
+    image: "/blog-img-1.png", 
     author: "Mesbah",
     date: "April 10",
     title: "Let's bring your ideas to life! Contact me, and let's",
   },
   {
     id: 2,
-    image: "/src/assets/img/blog-img-2.png",
+    image: "/blog-img-2.png",
     author: "Mesbah",
     date: "April 10",
     title: "Inspiring the World, One Project at a Time for the man",
   },
   {
     id: 3,
-    image: "/src/assets/img/blog-img-3.png",
+    image: "/blog-img-3.png",
     author: "Mesbah",
     date: "April 10",
     title: "Each one showcases my approach and dedication man",

@@ -22,7 +22,7 @@ function Experience() {
         <div className="w-full lg:w-1/2">
           <div className="rounded-[20px] overflow-hidden">
             <img 
-              src="/src/assets/img/experience-img.png" 
+              src="/experience-img.png" 
               alt="Workspace" 
               className="w-full h-auto object-cover aspect-4/3 lg:aspect-auto"
             />

@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="">
             {/* Logo Section */}
             <div className="shrink-0 flex items-center">
-              <img src="./src/assets/img/logo.png" alt="Logo" className="" />
+              <img src="/logo.png" alt="Logo" className="" />
             </div>
 
             <h2 className="text-[40px] font-bold text-chinese-black leading-11.25 pt-5.5">
