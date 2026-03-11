@@ -129,7 +129,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Toggle Button */}
-          <div className="flex items-center">
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-white bg-tomato rounded-full cursor-pointer focus:outline-none"
