@@ -31,7 +31,7 @@ function Experience() {
 
         {/* Right Side: Content */}
         <div className="w-full lg:w-1/2 px-3.75 xl:pl-10 xl:pr-34.5">
-          <h2 className="font-bold text-[32px] leading-10.5 text-chinese-black">Experiences</h2>
+          <h2 className="font-bold text-[32px] leading-10.5">Experiences</h2>
           
           <div className="mt-8">
             {experiences.map((exp, index) => (
@@ -39,13 +39,13 @@ function Experience() {
                 <span className="text-tomato font-rubik font-medium text-[16px] lowercase leading-7 block">
                   experience
                 </span>
-                <h3 className="text-[24px] font-bold leading-7.5 text-chinese-black">
+                <h3 className="text-[24px] font-bold leading-7.5">
                   {exp.name}
                 </h3>
-                <p className="text-chinese-black font-medium text-[18px] leading-7 pt-1.5">
+                <p className="font-medium text-[18px] leading-7 pt-1.5">
                   {exp.role}
                 </p>
-                <p className="text-black-coral font-rubik text-[16px] leading-7.5 pt-4">
+                <p className="text-small-text font-rubik text-[16px] leading-7.5 pt-4">
                   {exp.description}
                 </p>
               </div>

@@ -30,7 +30,7 @@ function MySkill() {
   return (
     <section
       id="mySkill"
-      className="bg-wild-sand lg:rounded-bl-[20px] lg:rounded-br-[20px] lg:pb-22.5"
+      className="bg-card-bg lg:rounded-bl-[20px] lg:rounded-br-[20px] lg:pb-22.5"
     >
     <div className="mx-auto max-w-326.25 px-3.75 py-7.5">
       {/* Header Section */}
@@ -38,7 +38,7 @@ function MySkill() {
         <span className="text-tomato font-rubik font-medium uppercase tracking-[1px] leading-7 text-[16px]">
           My Skill
         </span>
-        <h2 className="text-[22px] md:text-[48px] font-bold text-chinese-black mt-[4.4px] leading-[30.8px] md:leading-15 max-w-2xl">
+        <h2 className="text-[22px] md:text-[48px] font-bold mt-[4.4px] leading-[30.8px] md:leading-15 max-w-2xl">
           Elevated Designs Personalized the best Experiences
         </h2>
       </div>
@@ -49,18 +49,17 @@ function MySkill() {
           <div
             key={skill.id}
             onMouseEnter={() => setActiveId(skill.id)}
-            className={`group relative flex flex-col lg:flex-row items-center justify-between px-5 pt-10.75 pb-8 transition-all duration-300 cursor-pointer border-b border-lavender-gray/50 last:border-0
+            className={`group relative flex flex-col lg:flex-row items-center justify-between px-5 pt-10.75 pb-8 transition-all duration-300 cursor-pointer border-b border-lavender-gray dark:border-white/9 last:border-0
               ${activeId === skill.id ? 'bg-tomato' : 'bg-transparent'}`}
           >
             {/* Left: Icon and Title */}
             <div className="flex flex-col lg:flex-row items-center justify-between w-full lg:w-1/3 lg:mb-0">
-              <div className="p-4 rounded-full border-2 transition-colors duration-300
-                ">
+              <div className={`p-4 rounded-full border-2 border-chinese-black dark:border-white/9 text-charcoal dark:text-small-text  transition-colors duration-300 ${activeId === skill.id ? 'dark:text-white' : ''}`}>
                 {skill.icon}
               </div>
               <div className="pb-1.25">
-                <h3 className="text-[32px] font-bold leading-10.5 text-chinese-black">{skill.title}</h3>
-                <p className={`text-[18px] text-center lg:text-start ${activeId === skill.id ? 'text-chinese-black' : 'text-chinese-black'}`}>
+                <h3 className="text-[32px] font-bold leading-10.5">{skill.title}</h3>
+                <p className={`text-[18px] text-center lg:text-start ${activeId === skill.id ? '' : ''}`}>
                   {skill.count}
                 </p>
               </div>
@@ -69,14 +68,14 @@ function MySkill() {
             {/* Middle: Description */}
             <div className="w-full lg:w-2/5 lg:mb-0">
               <p className={`text-[16px] leading-7.5 font-rubik text-center lg:text-left 
-                ${activeId === skill.id ? 'text-chinese-black' : 'text-black-coral'}`}>
+                ${activeId === skill.id ? '' : 'text-small-text'}`}>
                 {skill.description}
               </p>
             </div>
 
             {/* Right: Read More Link */}
             <div className="w-full lg:w-auto flex justify-center">
-              <button className="flex items-center gap-2 text-chinese-black font-bold text-[16px] uppercase leading-8 tracking-[1.28px]">
+              <button className="flex items-center gap-2 font-bold text-[16px] uppercase leading-8 tracking-[1.28px]">
                 Read More <ChevronRight size={16} strokeWidth={3} />
               </button>
             </div>

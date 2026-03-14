@@ -14,12 +14,12 @@ const services = [
 const ServiceCard = ({ title, projects, iconUrl }) => {
   if (!iconUrl) return null;
   return (
-    <div className="group flex flex-col items-center justify-center rounded-2xl border border-tomato/16 bg-white p-8 transition-all duration-300 hover:-translate-y-2">
+    <div className="group flex flex-col items-center justify-center rounded-2xl border border-tomato/16 p-8 transition-all duration-300 hover:-translate-y-2">
       <div className="mb-7.5 rounded-xl">
         <img src={iconUrl} alt={title} className="text-[#FF4F4F] w-15 h-15" />
       </div>
-      <h3 className="mb-2.25 text-[24px] font-bold text-chinese-black leading-8.5">{title}</h3>
-      <p className="pb-4 font-rubik text-[16px] text-black-coral leading-6.5">
+      <h3 className="mb-2.25 text-[24px] font-bold leading-8.5">{title}</h3>
+      <p className="pb-4 font-rubik text-[16px] text-small-text leading-6.5">
         {projects}
       </p>
     </div>

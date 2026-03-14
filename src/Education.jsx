@@ -29,12 +29,12 @@ const EducationCard = ({ role, years, description }) => (
     <div className="card-effect" />
     
     {/* The Main Card Content */}
-    <div className="relative h-full px-5 lg:px-10 py-7.5 lg:py-12.5 bg-wild-sand rounded-[20px] flex flex-col gap-1.25">
+    <div className="relative h-full px-5 lg:px-10 py-7.5 lg:py-12.5 bg-card-bg rounded-[20px] flex flex-col gap-1.25">
       <div className="space-y-1">
-        <h3 className="text-chinese-black text-[16px] font-rubik leading-6.5">{role}</h3>
-        <p className="text-chinese-black font-bold text-[18px] leading-7">{years}</p>
+        <h3 className="text-[16px] font-rubik leading-6.5">{role}</h3>
+        <p className="font-bold text-[18px] leading-7">{years}</p>
       </div>
-      <p className="text-black-coral font-rubik leading-7.5 text-[16px] pt-0.75 lg:pt-3.25">
+      <p className="text-small-text font-rubik leading-7.5 text-[16px] pt-0.75 lg:pt-3.25">
         {description}
       </p>
     </div>

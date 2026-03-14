@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown } from 'lucide-react';
+import { useTheme } from "./provider/ThemeProvider";
+import { Sun, Moon, ChevronDown } from 'lucide-react';
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -13,7 +14,6 @@ const NavDropdown = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -28,7 +28,7 @@ const NavDropdown = ({ title, items }) => {
     <div className="relative group" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 text-chinese-black font-bold text-[16px] leading-7 px-2 py-2.5 cursor-pointer"
+        className="flex items-center gap-1 text-chinese-black dark:text-wild-sand font-bold text-[16px] leading-7 px-2 py-2.5 cursor-pointer"
       >
         {title}
         <ChevronDown 
@@ -39,7 +39,7 @@ const NavDropdown = ({ title, items }) => {
 
       {/* Dropdown Menu */}
       <div
-        className={`absolute left-0 mt-1 w-48 bg-white shadow-xl rounded-lg border border-gray-100 z-50 transition-all duration-200 
+        className={`absolute left-0 mt-1 w-48 bg-white dark:bg-charcoal shadow-xl rounded-lg border border-gray-100 dark:border-zinc-800 z-50 transition-all duration-200 
           ${isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-2 scale-95 pointer-events-none"}`}
       >
         <div className="py-2">
@@ -47,7 +47,7 @@ const NavDropdown = ({ title, items }) => {
             <a
               key={idx}
               href={item.href}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-wild-sand hover:text-tomato transition-colors"
+              className="block px-4 py-2 text-sm text-gray-700 dark:text-lavender-gray hover:bg-wild-sand dark:hover:bg-chinese-black hover:text-tomato transition-colors"
             >
               {item.label}
             </a>
@@ -59,9 +59,9 @@ const NavDropdown = ({ title, items }) => {
 };
 
 const Navbar = () => {
+  const { handleTheme, Themes, theme } = useTheme(); // Added 'theme' from context
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Data structure to handle both simple links and dropdowns
   const navLinks = [
     { name: "Home", href: "#" },
     { name: "About", href: "#" },
@@ -91,39 +91,66 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-wild-sand shadow-lg shadow-wild-sand/50 relative">
-      <div className="max-w-326.25 mx-auto flex items-center justify-between py-3.75 px-5">        
+    <nav className="bg-card-bg shadow-lg dark:shadow-none transition-colors duration-300 relative">
+      <div className="max-w-326.25 mx-auto flex items-center justify-between py-3.75 px-5">
         {/* Logo Section */}
         <div className="shrink-0 flex items-center">
-          <img src="/logo.png" alt="Logo" className="" />
+          <img
+            src={theme === "dark" ? "/logo-dark.png" : "/logo.png"}
+            alt="Logo"
+            className="h-10 w-auto transition-opacity duration-300"
+          />
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-2">
-          {navLinks.map((link) => (
+          {navLinks.map((link) =>
             link.dropdown ? (
-              <NavDropdown key={link.name} title={link.name} items={link.dropdown} />
+              <NavDropdown
+                key={link.name}
+                title={link.name}
+                items={link.dropdown}
+              />
             ) : (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-chinese-black font-bold text-[16px] leading-7 px-3 py-2.5 hover:text-tomato transition-colors"
+                className="font-bold text-[16px] leading-7 px-3 py-2.5 hover:text-tomato transition-colors"
               >
                 {link.name}
               </a>
-            )
-          ))}
+            ),
+          )}
         </div>
-        
+
         <div className="flex gap-6.25 items-center">
           {/* Social Icons */}
           <div className="hidden lg:flex items-center space-x-2">
-            {[FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF].map((Icon, i) => (
+            {[FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF].map(
+              (Icon, i) => (
+                <button
+                  key={i}
+                  className="p-3 bg-[#0a0a0a]/6 dark:bg-charcoal hover:bg-tomato hover:text-white rounded-full transition-all cursor-pointer"
+                >
+                  <Icon size={14} />
+                </button>
+              ),
+            )}
+          </div>
+
+          {/* Lucide Dark/Light Toggle */}
+          <div className="flex items-center gap-2 bg-[#0a0a0a]/6 dark:bg-charcoal p-1 rounded-full">
+            {Themes.map((value) => (
               <button
-                key={i}
-                className="p-3 bg-lavender-gray hover:bg-tomato hover:text-white rounded-full transition-all cursor-pointer"
+                key={value}
+                className={`p-2 rounded-full transition-all duration-300 ${
+                  theme === value
+                    ? "bg-white dark:bg-chinese-black text-tomato shadow-sm"
+                    : "text-black-coral hover:text-tomato"
+                }`}
+                onClick={() => handleTheme(value)}
               >
-                <Icon size={14} />
+                {value === "light" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             ))}
           </div>
@@ -134,7 +161,11 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-white bg-tomato rounded-full cursor-pointer focus:outline-none"
             >
-              {isMobileMenuOpen ? <RiCloseFill size={21} /> : <RiMenu3Line size={21} />}
+              {isMobileMenuOpen ? (
+                <RiCloseFill size={21} />
+              ) : (
+                <RiMenu3Line size={21} />
+              )}
             </button>
           </div>
         </div>
@@ -142,22 +173,30 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`${isMobileMenuOpen ? "block" : "hidden"} md:hidden bg-white border-t border-gray-100 absolute w-full left-0 z-50`}
+        className={`${isMobileMenuOpen ? "block" : "hidden"} md:hidden bg-white dark:bg-charcoal border-t border-gray-100 dark:border-zinc-800 absolute w-full left-0 z-50`}
       >
         <div className="px-4 pt-2 pb-6 space-y-1">
           {navLinks.map((link) => (
             <div key={link.name}>
               {link.dropdown ? (
                 <>
-                  <div className="font-bold text-chinese-black px-3 py-2 border-b border-gray-50">{link.name}</div>
+                  <div className="font-bold text-chinese-black dark:text-wild-sand px-3 py-2 border-b border-gray-50 dark:border-zinc-800">
+                    {link.name}
+                  </div>
                   {link.dropdown.map((sub) => (
-                    <a key={sub.label} href={sub.href} className="block pl-8 pr-3 py-2 text-black-coral text-sm">{sub.label}</a>
+                    <a
+                      key={sub.label}
+                      href={sub.href}
+                      className="block pl-8 pr-3 py-2 text-black-coral dark:text-lavender-gray text-sm"
+                    >
+                      {sub.label}
+                    </a>
                   ))}
                 </>
               ) : (
                 <a
                   href={link.href}
-                  className="block text-chinese-black font-bold px-3 py-2 rounded-md hover:bg-wild-sand"
+                  className="block text-chinese-black dark:text-wild-sand font-bold px-3 py-2 rounded-md hover:bg-wild-sand dark:hover:bg-chinese-black"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}

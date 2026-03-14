@@ -26,7 +26,7 @@ const blogPosts = [
 ];
 
 const BlogCard = ({ post }) => (
-  <div className="group bg-white rounded-[20px] border-2 border-lavender-gray transition-all duration-300 hover:shadow-xl">
+  <div className="group rounded-[20px] border-2 border-lavender-gray dark:border-white/9 transition-all duration-300 hover:shadow-xl">
     {/* Image Container with Badges */}
     <div className="relative overflow-hidden rounded-[20px]">
       <img 
@@ -35,13 +35,13 @@ const BlogCard = ({ post }) => (
         className="w-full aspect-4/3 object-cover transition-transform duration-500 group-hover:scale-110"
       />
       {/* Meta Badge Overlay */}
-      <div className="absolute top-4 left-4 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm">
-        <div className="flex items-center gap-1.5 text-gray-900 text-[10px] md:text-xs font-bold border-r border-gray-300 pr-3">
-          <User size={14} className="text-chinese-black font-rubik text-sm" />
+      <div className="absolute top-4 left-4 flex items-center gap-3 bg-app-bg backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm">
+        <div className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold border-r border-gray-300 pr-3">
+          <User size={14} className="font-rubik text-sm" />
           {post.author}
         </div>
-        <div className="flex items-center gap-1.5 text-chinese-black text-[10px] md:text-xs font-bold">
-          <Calendar size={14} className="text-chinese-black" />
+        <div className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold">
+          <Calendar size={14} className="" />
           {post.date}
         </div>
       </div>
@@ -49,11 +49,11 @@ const BlogCard = ({ post }) => (
 
     {/* Text Content */}
     <div className="p-5 space-y-4">
-      <h3 className="text-[24px] font-bold text-chinese-black leading-7.5 min-h-14 group-hover:text-tomato transition-colors">
+      <h3 className="text-[24px] font-bold leading-7.5 min-h-14 group-hover:text-tomato transition-colors">
         {post.title}
       </h3>
       
-      <button className="flex items-center gap-3 text-[13px] leading-6.75 font-rubik uppercase tracking-[0.5px] text-black-coral group-hover:text-red-500 transition-colors">
+      <button className="flex items-center gap-3 text-[13px] leading-6.75 font-rubik uppercase tracking-[0.5px] text-small-text group-hover:text-tomato transition-colors">
         Read More <ChevronRight size={14} strokeWidth={3} />
       </button>
     </div>
@@ -68,7 +68,7 @@ function Blog() {
         <span className="text-tomato font-rubik font-medium uppercase tracking-[1px] leading-7 text-[16px]">
           Blog and news
         </span>
-        <h2 className="text-[22px] md:text-[48px] font-bold text-chinese-black mt-[4.4px] leading-[30.8px] md:leading-15">
+        <h2 className="text-[22px] md:text-[48px] font-bold mt-[4.4px] leading-[30.8px] md:leading-15">
           Elevating Personal Branding the <br className="hidden md:block" />through Powerful Portfolios
         </h2>
       </div>

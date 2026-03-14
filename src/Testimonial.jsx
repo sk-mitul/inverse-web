@@ -35,7 +35,7 @@ const TestimonialCard = ({ quote, name, role, quoteImage }) => (
     <div className="card-effect" />
     
     {/* Card Content */}
-    <div className="relative h-full p-9.5 bg-wild-sand border border-gray-100 rounded-[20px] flex flex-col gap-6">
+    <div className="relative h-full p-9.5 bg-card-bg rounded-[20px] flex flex-col gap-6">
       {/* Comma Image replacement */}
       <div className="flex items-center justify-start transition-transform duration-500 group-hover:rotate-5">
         <img 
@@ -45,13 +45,13 @@ const TestimonialCard = ({ quote, name, role, quoteImage }) => (
         />
       </div>
 
-      <p className="text-black-coral font-rubik leading-[30.6px] text-[18px] pt-10.75">
+      <p className="text-small-text font-rubik leading-[30.6px] text-[18px] pt-10.75">
         "{quote}"
       </p>
 
       <div className="mt-4 text-left">
-        <h4 className="text-chinese-black font-bold text-[18px] leading-[20.5px]">{name}</h4>
-        <p className="text-gray-400 text-sm font-rubik leading-[22.4px] mt-2.75">{role}</p>
+        <h4 className="font-bold text-[18px] leading-[20.5px]">{name}</h4>
+        <p className="text-small-text text-sm font-rubik leading-[22.4px] mt-2.75">{role}</p>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@ function Testimonial() {
         <span className="text-tomato font-rubik font-medium uppercase tracking-[1px] leading-7 text-[16px]">
           Our Testimonial
         </span>
-        <h2 className="text-[22px] md:text-[48px] font-bold text-chinese-black mt-[4.4px] leading-[30.8px] md:leading-15">
+        <h2 className="text-[22px] md:text-[48px] font-bold mt-[4.4px] leading-[30.8px] md:leading-15">
           Enhancing Collaboration <br className="hidden md:block" />between Remote
         </h2>
       </div>

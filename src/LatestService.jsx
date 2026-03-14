@@ -1,6 +1,7 @@
-import React from 'react';
+import { useTheme } from "./provider/ThemeProvider";
 
 const LatestService = () => {
+  const { theme } = useTheme(); // Added 'theme' from context
   const services = [
     {
       id: "01.",
@@ -28,10 +29,10 @@ const LatestService = () => {
         <span className="text-tomato font-rubik font-medium text-[16px] uppercase tracking-[1px] leading-7">
           Latest Service
         </span>
-        <h2 className="text-[22px] md:text-5xl font-bold text-chinese-black my-1.25 leading-[30.8px] md:leading-15">
+        <h2 className="text-[22px] md:text-5xl font-bold my-1.25 leading-[30.8px] md:leading-15">
           Inspiring The World One Project
         </h2>
-        <p className="max-w-160 mx-auto text-black-coral font-rubik font-normal text-[16px] leading-6.5 px-[2.97px] pt-[4.5px]">
+        <p className="max-w-160 mx-auto text-small-text font-rubik font-normal text-[16px] leading-6.5 px-[2.97px] pt-[4.5px]">
           Business consulting consultants provide expert advice and guida
           businesses to help them improve their performance, efficiency, and
           organizational
@@ -47,13 +48,13 @@ const LatestService = () => {
                 <div className="card-effect" />
 
                 {/* The Card Body */}
-                <div className="relative h-full bg-wild-sand px-3.25 md:px-9.5 py-7 md:py-8.5 rounded-[20px]">
+                <div className="relative h-full bg-card-bg px-3.25 md:px-9.5 py-7 md:py-8.5 rounded-[20px]">
                   <div className="flex flex-col md:gap-5.5">
-                    <h3 className="text-[24px] font-bold text-chinese-black leading-7.5">
+                    <h3 className="text-[24px] font-bold leading-7.5">
                       <span className="mr-3.75">{service.id}</span>{" "}
                       {service.title}
                     </h3>
-                    <p className="text-black-coral font-rubik text-[16px] leading-6.5">
+                    <p className="text-small-text font-rubik text-[16px] leading-6.5">
                       {service.description}
                     </p>
                   </div>
@@ -65,7 +66,7 @@ const LatestService = () => {
         {/* Right Content: Image */}
         <div className="flex justify-center pt-7.5">
           <img
-            src="/latest-user-image.png"
+            src={theme === "dark" ? "/latest-user-image-dark.png" : "/latest-user-image.png"}
             alt="Consultant"
             className="w-full"
           />

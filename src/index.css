@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @import "tailwindcss";
 
-@theme{
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
   --default-font-family: "Rajdhani", sans-serif;
   --font-rubik: "Rubik", sans-serif;
   --font-inter: "Inter", sans-serif;
+  
+  /* Semantic Colors (These change based on theme) */
+  --color-app-bg: var(--bg-main);
+  --color-app-text: var(--text-main);
+  --color-card-bg: var(--bg-card);
+  --color-small-text: var(--text-small);
+
+  /* Your existing palette */
   --color-chinese-black: #141414;
   --color-black-coral: #5D6570;
   --color-tomato: #FF494A;
@@ -12,30 +23,50 @@
   --color-lavender-gray: #D9DDE0;
   --color-charcoal: #2A2D31;
 }
+
+/* Base Variable Definitions */
+:root {
+  --bg-main: #ffffff;   
+  --text-main: #141414; /* chinese-black */
+  --bg-card: #F4F4F4; /* wild-sand */
+  --text-small: #5D6570; /* black-coral */
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --bg-main: #000000;    
+  --text-main: #ffffff;
+  --bg-card: #141414; 
+  --text-small: #9F9F9F;
+}
+
 @layer base {
+  body {
+    @apply bg-app-bg text-app-text transition-colors duration-300;
+  }
   .container {
     @apply max-w-326.25 mx-auto;
   }
   .btn {
-    @apply w-50 h-15 px-7.5 bg-wild-sand hover:bg-tomato capitalize font-rubik font-medium text-[16px] text-charcoal hover:text-white leading-4 tracking-[0.5px] border-2 hover:border-tomato border-lavender-gray rounded-full flex items-center justify-center transition-all duration-100;
+    @apply w-50 h-15 px-7.5 hover:bg-tomato capitalize font-rubik font-medium text-[16px] text-app-text hover:text-white leading-4 tracking-[0.5px] border-2 border-lavender-gray hover:border-tomato rounded-full flex items-center justify-center transition-all duration-100;
   }  
 }
 
-@layer utilities{
+@layer utilities {
   .stroke-front {
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: tomato;
-}
-.stroke-back {
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black-coral;
-}
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-tomato);
+  }
+  .stroke-back {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-black-coral);
+  }
 }
 
-@layer components{
-  .card-effect{
+@layer components {
+  .card-effect {
     @apply absolute inset-0 translate-x-0.5 translate-y-0.5 bg-tomato rounded-[20px] transition-transform group-hover:translate-x-1 group-hover:translate-y-1;
   }
 }

@@ -14,11 +14,11 @@ const logos = [
 function LogoGrid() {
   return (
     <section id="logoGrid" className="mx-auto max-w-326.25 px-3.75 lg:pt-0 py-7.5 mb-7.5 lg:mb-22.5">
-      <div className="grid grid-cols-1 md:grid-cols-4 border-t border-l border-2 border-lavender-gray">
+      <div className="grid grid-cols-1 md:grid-cols-4 border-t border-l border-2 border-lavender-gray dark:border-white/9">
         {logos.map((logo, index) => (
           <div 
             key={index} 
-            className="flex items-center justify-center py-6 md:py-10 px-10 border-r border-b border-2 border-lavender-gray transition-colors hover:bg-lavender-gray/50 group"
+            className="flex items-center justify-center py-6 md:py-10 px-10 border-r border-b border-2 border-lavender-gray dark:border-white/9 transition-colors hover:bg-lavender-gray/50 group"
           >
             <img
               src={logo.src}

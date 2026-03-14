@@ -28,8 +28,8 @@ const PricingCard = ({ plan }) => (
     <div className="card-effect" />
     
     {/* Main Card Content */}
-    <div className={`relative h-full p-6 rounded-[20px] bg-wild-sand border border-wild-sand flex flex-col transition-transform duration-300 group-hover:-translate-y-1`}>
-      <div className="mb-8 text-chinese-black">
+    <div className={`relative h-full p-6 rounded-[20px] bg-card-bg flex flex-col transition-transform duration-300 group-hover:-translate-y-1`}>
+      <div className="mb-8">
         <h3 className="font-bold text-[18px] leading-6.75 mb-4">{plan.name}</h3>
         <div className="font-bold text-[48px] leading-15">$ {plan.price}</div>
         <p className="font-bold text-[18px] leading-6.75 mt-1.25 mb-0.5">Per Month</p>
@@ -37,7 +37,7 @@ const PricingCard = ({ plan }) => (
 
       <ul className="space-y-4 pt-13.75 pb-7">
         {plan.features.map((feature, idx) => (
-          <li key={idx} className="flex items-center gap-3.75 text-black-coral font-rubik text-[16px]">
+          <li key={idx} className="flex items-center gap-3.75 text-small-text font-rubik text-[16px]">
             <div className="bg-red-500 rounded-full p-1 shrink-0">
               <Check size={12} className="text-white" strokeWidth={4} />
             </div>
@@ -48,8 +48,8 @@ const PricingCard = ({ plan }) => (
 
       <button className={`btn
         ${plan.featured 
-          ? 'bg-red-500 text-white border-transparent hover:bg-gray-900' 
-          : 'bg-transparent text-gray-900 border-gray-200 hover:border-red-500 hover:text-red-500'}`}>
+          ? 'bg-red-500 text-white border-transparent' 
+          : 'btn'}`}>
         Get Started <ArrowRight size={18} />
       </button>
     </div>
@@ -64,7 +64,7 @@ function Pricing() {
         <span className="text-tomato font-rubik font-medium uppercase tracking-[1px] leading-7 text-[16px]">
           My Price Plan
         </span>
-        <h2 className="text-[22px] md:text-[48px] font-bold text-chinese-black mt-[4.4px] leading-[30.8px] md:leading-15">
+        <h2 className="text-[22px] md:text-[48px] font-bold mt-[4.4px] leading-[30.8px] md:leading-15">
           Enhancing Collaboration <br className="hidden md:block" /> between Remote
         </h2>
       </div>

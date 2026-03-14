@@ -1,3 +1,4 @@
+import ThemeProvider from './provider/ThemeProvider'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import Service from './Service'
@@ -17,6 +18,7 @@ import Footer from './Footer'
 function App() { 
 
   return (
+    <ThemeProvider>
     <>
       <Navbar/>
       <Hero/>
@@ -34,6 +36,7 @@ function App() {
       <Blog/>
       <Footer/>
     </>
+    </ThemeProvider>
   )
 }
 
